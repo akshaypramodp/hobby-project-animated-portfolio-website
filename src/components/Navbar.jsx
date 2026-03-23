@@ -24,7 +24,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const scrollToSection = (e, href) => {
     e.preventDefault();
     setMobileMenuOpen(false);
     const element = document.querySelector(href);

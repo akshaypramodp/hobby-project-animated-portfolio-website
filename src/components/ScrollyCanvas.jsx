@@ -5,13 +5,13 @@ import { useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 
 const FRAME_COUNT = 105;
 
-const currentFrame = (index: number) =>
+const currentFrame = (index) =>
   `/sequence/frame_${index.toString().padStart(3, "0")}_delay-0.066s.png`;
 
 export default function ScrollyCanvas() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const containerRef = useRef(null);
+  const canvasRef = useRef(null);
+  const [images, setImages] = useState([]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -22,7 +22,7 @@ export default function ScrollyCanvas() {
 
   useEffect(() => {
     // Preload all 105 images to prevent flickering
-    const loadedImages: HTMLImageElement[] = [];
+    const loadedImages = [];
     let loadedCount = 0;
 
     for (let i = 0; i < FRAME_COUNT; i++) {
@@ -45,7 +45,7 @@ export default function ScrollyCanvas() {
     setImages(loadedImages);
   }, []);
 
-  const renderFrame = (ctx: CanvasRenderingContext2D, img: HTMLImageElement) => {
+  const renderFrame = (ctx, img) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 

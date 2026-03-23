@@ -5,9 +5,9 @@ import { Mail, Phone, MapPin, Linkedin, Github, Send, CheckCircle2, AlertCircle 
 import { useState } from "react";
 
 export default function Contact() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState("idle");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -103,10 +103,10 @@ export default function Contact() {
               <div className="mt-16 pt-10 border-t border-white/10">
                 <p className="text-sm text-gray-400 mb-6">Connect with me on social media:</p>
                 <div className="flex gap-4">
-                  <a href="http://www.linkedin.com/in/akshaypramodp" target="_blank" className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all">
+                  <a href="http://www.linkedin.com/in/akshaypramodp" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all">
                     <Linkedin size={20} />
                   </a>
-                  <a href="https://github.com/akshaypramodp" target="_blank" className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all">
+                  <a href="https://github.com/akshaypramodp" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all">
                     <Github size={20} />
                   </a>
                 </div>
